@@ -45,7 +45,7 @@
 					<form action="found_listing.php" method="POST">
             <p>Your Name: <input type="text" name="yourName" placeholder="Ex: John Smith" value="<?php if(isset($_POST['yourName'])) echo $_POST['yourName']; ?>"></p>
             <p>E-Mail: <input type="text" name="E-Mail" placeholder="Ex: John.Smith1@marist.edu" value="<?php if(isset($_POST['E-Mail'])) echo $_POST['E-Mail']; ?>"></p>
-            <p>Name of Item: <input type="text" name="nameOfItem" placeholder="Ex: TI-84 Krogulator" value="<?php if(isset($_POST['nameOfItem'])) echo $_POST['nameOfItem']; ?>"></p>
+            <p>Name of Item: <input type="text" name="nameOfItem" placeholder="Ex: TI-84 Calculator" value="<?php if(isset($_POST['nameOfItem'])) echo $_POST['nameOfItem']; ?>"></p>
             <p>Catagory: 
               <select name="Catagory" id="Catagory">
                 <option selected value="selected">--Select--</option>
