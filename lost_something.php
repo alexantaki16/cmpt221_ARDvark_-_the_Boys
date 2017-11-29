@@ -1,4 +1,44 @@
+<!-- Johnathan Clementi, Alex Mahlmeister, Alex Antaki, Matt Oakley --
+-- Prof: Casimer DeCusatis --
+-- Date: 11/27/2017 --
+-- Assignment: Limbo --
+-- File name: found_listing.php --
+-->
 <!DOCTYPE html>
+<?php
+  require("connect_db.php");
+  require("tools.php");
+	$name = '';
+	$eMail = '';
+	$item = '';
+	$itemType = '';
+	$local = '';
+	$date = '';
+	$desc = '';
+  if($_SERVER[ 'REQUEST_METHOD' ] == 'POST'){
+    $name = $_POST['yourName'];
+
+	  $eMail = $_POST['E-Mail'];
+
+    $item = $_POST['nameOfItem'];
+
+    $itemType = $_POST['catagory'];
+
+    $local = $_POST['location'];
+
+    $date = $_POST['date'];
+
+    $desc = $_POST['desc'];
+
+    echo "<h1>".$name."</h1>";
+    echo "<h1>".$eMail."</h1>";
+    echo "<h1>".$item."</h1>";
+    echo "<h1>".$itemType."</h1>";
+    echo "<h1>".$local."</h1>";
+    echo "<h1>".$date."</h1>";
+    echo "<h1>".$desc."</h1>";
+  }
+?>
 	<!--Sets HTML Language-->
 	<html lang="en-us">
 	<!--Header-->
@@ -28,7 +68,7 @@
 			<!--Grey Background DIV-->
 			<div class="first">
 				<!--Text-->
-				<h1>Lost Something?</h1>
+				<h1>Found Something?</h1>
 				<h2>Listing lost items with Limbo is as easy as it gets.</br>Just fill out the following fields and the item</br>will be posted to our campus-wide database!</h2>
 				<br/>
 				<br/>
@@ -36,62 +76,62 @@
 				<br/>
 				<!--Contains the form information -->
 				<div class="table_div">
-					<form action="found_listing.php" method="POST">
+					<form action="lost_something.php" method="POST">
             <p>Your Name: <input type="text" name="yourName" placeholder="Ex: John Smith" value="<?php if(isset($_POST['yourName'])) echo $_POST['yourName']; ?>"></p>
             <p>E-Mail: <input type="text" name="E-Mail" placeholder="Ex: John.Smith1@marist.edu" value="<?php if(isset($_POST['E-Mail'])) echo $_POST['E-Mail']; ?>"></p>
-            <p>Name of Item: <input type="text" name="nameOfItem" placeholder="Ex: TI-84 Calculator" value="<?php if(isset($_POST['nameOfItem'])) echo $_POST['nameOfItem']; ?>"></p>
+            <p>Name of Item: <input type="text" name="nameOfItem" placeholder="Ex: TI-84 Krogulator" value="<?php if(isset($_POST['nameOfItem'])) echo $_POST['nameOfItem']; ?>"></p>
             <p>Catagory:
-              <select name="Catagory" id="Catagory">
+              <select name="catagory" id="catagory">
                 <option selected value="selected">--Select--</option>
-                <option value="Clothes">Clothes</option>
-                <option value="Electronics">Electronics</option>
-                <option value="School Supplies">School Supplies</option>
-                <option value="Personal Items">Personal Items</option>
-                <option value="Other">Other</option>
+                <option <?php if($itemType=='Clothes') echo 'selected="selected"' ?> value="Clothes">Clothes</option>
+                <option <?php if($itemType=='Electronics') echo 'selected="selected"' ?> value="Electronics">Electronics</option>
+                <option <?php if($itemType=='School Supplies') echo 'selected="selected"' ?> value="School Supplies">School Supplies</option>
+                <option <?php if($itemType=='Personal Items') echo 'selected="selected"' ?> value="Personal Items">Personal Items</option>
+                <option <?php if($itemType=='Other') echo 'selected="selected"' ?> value="Other">Other</option>
               </select>
             </p>
             <p>Location Found:
-               <select name="Location Found" id="Location Found">
+               <select name="location" id="location">
                 <option selected value="selected">--Select--</option>
-                <option value="Bryne House">Bryne House</option>
-                <option value="Cannavino Library">Cannavino Library</option>
-                <option value="Champagnat Hall">Champagnat Hall</option>
-                <option value="Chapel">Chapel</option>
-                <option value="Cornell Boathouse">Cornell Boathouse</option>
-                <option value="Donnelly Hall">Donnelly Hall</option>
-                <option value="Dyson Center">Dyson Center</option>
-                <option value="Fern Tor">Fern Tor</option>
-                <option value="Fontaine Hall">Fontaine Hall</option>
-                <option value="Foy Townhouses">Foy Townhouses</option>
-                <option value="Lower Fulton Townhouses">Lower Fulton Townhouses</option>
-                <option value="Upper Fulton Townhouses">Upper Fulton Townhouses</option>
-                <option value="Greystone">Greystone</option>
-                <option value="Hancock Center">Hancock Center</option>
-                <option value="Kieran Gatehouse">Kieran Gatehouse</option>
-                <option value="Kirk House">Kirk House</option>
-                <option value="Leo Hall">Leo Hall</option>
-                <option value="Longview Park">Longview Park</option>
-                <option value="Lowell Thomas Communication Center">Lowell Thomas Communication Center</option>
-                <option value="Lower Townhouses">Lower Townhouses</option>
-                <option value="Marian Hall">Marian Hall</option>
-                <option value="Marist Boathouse">Marist Boathouse</option>
-                <option value="McCann Center">McCann Center</option>
-                <option value="Mid-Rise Hall">Mid-Rise Hall</option>
-                <option value="North Campus Housing Complex">North Campus Housing Complex</option>
-                <option value="St. Ann's Hermitage">St. Ann's Hermitage</option>
-                <option value="St. Peter's">St. Peter's</option>
-                <option value="Science and Allied Health Building">Science and Allied Health Building</option>
-                <option value="Sheahan Hall">Sheahan Hall</option>
-                <option value="Steel Plant Studios and Gallery">Steel Plant Studios and Gallery</option>
-                <option value="Dennis J. Murray Student Ceneter/Music Building">Dennis J. Murray Student Ceneter/Music Building</option>
-                <option value="Lower West Cedar Townhouses">Lower West Cedar Townhouses</option>
-                <option value="Upper West Cedar Townhouses">Upper West Cedar Townhouses</option>
+                <option <?php if($local=='Bryne House') echo 'selected="selected"' ?> value="Bryne House">Bryne House</option>
+                <option <?php if($local=='Cannavino Library') echo 'selected="selected"' ?> value="Cannavino Library">Cannavino Library</option>
+                <option <?php if($local=='Champagnat Hall') echo 'selected="selected"' ?> value="Champagnat Hall">Champagnat Hall</option>
+                <option <?php if($local=='Chapel') echo 'selected="selected"' ?> value="Chapel">Chapel</option>
+                <option <?php if($local=='Cornell Boathouse') echo 'selected="selected"' ?> value="Cornell Boathouse">Cornell Boathouse</option>
+                <option <?php if($local=='Donnelly Hall') echo 'selected="selected"' ?> value="Donnelly Hall">Donnelly Hall</option>
+                <option <?php if($local=='Dyson Center') echo 'selected="selected"' ?> value="Dyson Center">Dyson Center</option>
+                <option <?php if($local=='Fern Tor') echo 'selected="selected"' ?> value="Fern Tor">Fern Tor</option>
+                <option <?php if($local=='Fontaine Hall') echo 'selected="selected"' ?> value="Fontaine Hall">Fontaine Hall</option>
+                <option <?php if($local=='Foy Townhouses') echo 'selected="selected"' ?> value="Foy Townhouses">Foy Townhouses</option>
+                <option <?php if($local=='Lower Fulton Townhouses') echo 'selected="selected"' ?> value="Lower Fulton Townhouses">Lower Fulton Townhouses</option>
+                <option <?php if($local=='Upper Fulton Townhouses') echo 'selected="selected"' ?> value="Upper Fulton Townhouses">Upper Fulton Townhouses</option>
+                <option <?php if($local=='Greystone') echo 'selected="selected"' ?> value="Greystone">Greystone</option>
+                <option <?php if($local=='Hancock Center') echo 'selected="selected"' ?> value="Hancock Center">Hancock Center</option>
+                <option <?php if($local=='Kieran Gatehouse') echo 'selected="selected"' ?> value="Kieran Gatehouse">Kieran Gatehouse</option>
+                <option <?php if($local=='Kirk House') echo 'selected="selected"' ?> value="Kirk House">Kirk House</option>
+                <option <?php if($local=='Leo Hall') echo 'selected="selected"' ?> value="Leo Hall">Leo Hall</option>
+                <option <?php if($local=='Longview Park') echo 'selected="selected"' ?> value="Longview Park">Longview Park</option>
+                <option <?php if($local=='Lowell Thomas Communication Center') echo 'selected="selected"' ?> value="Lowell Thomas Communication Center">Lowell Thomas Communication Center</option>
+                <option <?php if($local=='Lower Townhouses') echo 'selected="selected"' ?> value="Lower Townhouses">Lower Townhouses</option>
+                <option <?php if($local=='Marian Hall') echo 'selected="selected"' ?> value="Marian Hall">Marian Hall</option>
+                <option <?php if($local=='Marist Boathouse') echo 'selected="selected"' ?> value="Marist Boathouse">Marist Boathouse</option>
+                <option <?php if($local=='McCann Center') echo 'selected="selected"' ?> value="McCann Center">McCann Center</option>
+                <option <?php if($local=='Mid-Rise Hall') echo 'selected="selected"' ?> value="Mid-Rise Hall">Mid-Rise Hall</option>
+                <option <?php if($local=='North Campus Housing Complex') echo 'selected="selected"' ?> value="North Campus Housing Complex">North Campus Housing Complex</option>
+                <option <?php if($local=="St. Ann's Hermitage") echo 'selected="selected"' ?> value="St. Ann's Hermitage">St. Ann's Hermitage</option>
+                <option <?php if($local=="St. Peter's") echo 'selected="selected"' ?> value="St. Peter's">St. Peter's</option>
+                <option <?php if($local=='Science and Allied Health Building') echo 'selected="selected"' ?> value="Science and Allied Health Building">Science and Allied Health Building</option>
+                <option <?php if($local=='Sheahan Hall') echo 'selected="selected"' ?> value="Sheahan Hall">Sheahan Hall</option>
+                <option <?php if($local=='Steel Plant Studios and Gallery') echo 'selected="selected"' ?> value="Steel Plant Studios and Gallery">Steel Plant Studios and Gallery</option>
+                <option <?php if($local=='Dennis J. Murray Student Ceneter/Music Building') echo 'selected="selected"' ?> value="Dennis J. Murray Student Ceneter/Music Building">Dennis J. Murray Student Ceneter/Music Building</option>
+                <option <?php if($local=='Lower West Cedar Townhouses') echo 'selected="selected"' ?> value="Lower West Cedar Townhouses">Lower West Cedar Townhouses</option>
+                <option <?php if($local=='Upper West Cedar Townhouses') echo 'selected="selected"' ?> value="Upper West Cedar Townhouses">Upper West Cedar Townhouses</option>
 
                 <option value="Other">Other</option>
               </select>
             </p>
             <p>Date Found: <input type="datetime-local" name="date"> </p>
-            <h4>Description of Item:</h4><textarea rows="10" cols="50" placeholder="Ex: TI-84 Graphing Calculator. Yellow and gray casing with clear battery case. Scuffs on side of calculator."></textarea>
+            <h4>Description of Item:</h4><textarea name="desc" id="desc" rows="10" cols="50" placeholder="Ex: TI-84 Graphing Calculator. Yellow and gray casing with clear battery case. Scuffs on side of calculator."></textarea>
             <p> <input type="submit"></p>
           </form>
 				</div>
