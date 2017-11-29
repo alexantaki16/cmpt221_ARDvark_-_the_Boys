@@ -17,16 +17,11 @@ function valid_email($name){
 }
 
 
-function create_user($name){
-  $query = 'INSERT INTO users(fname, lname, email, pass)
-    VALUES ("' . $fname . '" , "' . $lname . '" , "' . $email . '" , "' . $pass . '" )'; 
+function adminLogin($name){
+  $query = 'SELECT username FROM users WHERE username = "caz" AND pass = "doctorwho112"'; 
 }
 
 
-// #Create new admin
-// function newAdmin($){
-//   $query = 'INSERT INTO users(admin) 
-//             WHERE users(uid) == $uid'
-// }
 
 ?> 
+
