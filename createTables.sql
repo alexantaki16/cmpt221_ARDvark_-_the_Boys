@@ -49,6 +49,8 @@ CREATE TABLE location(
   name          TEXT NOT NULL,
   create_date   DATETIME NOT NULL,
   update_date   DATETIME NOT NULL,
+  latCord      FLOAT(10,6) NOT NULL,
+  longCord      FLOAT(10,6) NOT NULL,
 );
 
 /*
