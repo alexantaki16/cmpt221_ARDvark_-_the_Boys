@@ -9,7 +9,17 @@
   //require("includes/connect_db.php");
   //require("includes/tools.php");
   
+  $name = '';
+  $eMail = '';
+  $item = '';
+  $itemType = '';
+  $local = '';
+  $date = '';
+  $desc = '';
+  
   if($_SERVER[ 'REQUEST_METHOD' ] == 'POST'){
+    
+    
     $name = $_POST['yourName'];
 	
 	  $eMail = $_POST['E-Mail'];
@@ -121,10 +131,10 @@
                 <option <?php if($local=='Lower West Cedar Townhouses') echo 'selected="selected"' ?> value="Lower West Cedar Townhouses">Lower West Cedar Townhouses</option>
                 <option <?php if($local=='Upper West Cedar Townhouses') echo 'selected="selected"' ?> value="Upper West Cedar Townhouses">Upper West Cedar Townhouses</option>
                 
-                <option value="Other">Other</option>
+                <option <?php if($local=='Other') echo 'selected="selected"' ?> value="Other">Other</option>
               </select>
             </p>
-            <p>Date Found: <input type="datetime-local" name="date"> </p>
+            <p>Date Found: <input type="datetime-local" <?php if(!empty($date)) echo 'selected="selected"' ?> name="date"> </p>
             <h4>Description of Item:</h4><textarea name="desc" id="desc" rows="10" cols="50" placeholder="Ex: TI-84 Graphing Calculator. Yellow and gray casing with clear battery case. Scuffs on side of calculator."></textarea>
             <p> <input type="submit"></p>
           </form>
