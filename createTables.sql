@@ -22,7 +22,7 @@ DROP TABLE IF EXISTS stuffPeeps;
 
 -- Users table holds limbo users / admins data
 CREATE TABLE users(
-  uid       char(3) AUTO_INCREMENT PRIMARY KEY,
+  uid       INT AUTO_INCREMENT PRIMARY KEY,
   fname     TEXT NOT NULL,
   lname     TEXT NOT NULL,
   email     TEXT,
@@ -34,7 +34,7 @@ CREATE TABLE users(
 
 -- Stuff table holds lost and found stuff
 CREATE TABLE stuff(
-  sid          char(3) AUTO_INCREMENT PRIMARY KEY,
+  sid          INT AUTO_INCREMENT PRIMARY KEY,
   description  TEXT NOT NULL,
   create_date  DATETIME NOT NULL,
   update_date  DATETIME NOT NULL,
@@ -43,71 +43,55 @@ CREATE TABLE stuff(
   itemName     TEXT,
   catagory     SET ('Clothes', 'Electronics', 'School Supplies', 'Personal Items', 'Other') NOT NULL,
   status       SET ('found', 'lost', 'claimed') NOT NULL,
-  lid          char(3) REFERENCES location(lid)
-  -- TODO stuff for location
-  
+  lid          INT REFERENCES location(lid)
 );
 
 
 -- Location table holds location data
 CREATE TABLE location(
-  lid           char(3) AUTO_INCREMENT PRIMARY KEY,
+  lid           INT AUTO_INCREMENT PRIMARY KEY,
   name          TEXT NOT NULL,
   create_date   DATETIME NOT NULL,
   update_date   DATETIME NOT NULL,
-  latCord      FLOAT(10,6) NOT NULL,
-  longCord      FLOAT(10,6) NOT NULL,
+  latCord       FLOAT(10,6) NOT NULL,
+  longCord      FLOAT(10,6) NOT NULL
 );
 
-/*
-
-CREATE TABLE stuffLoc(
-  sid  char(3)
-);
-
--- 
-CREATE TABLE peopleLoc(
-);
-
--- 
-CREATE TABLE stuffPeeps(
-);
-
-*/
 
 -- #We insert values into the table so we can add to our buildings database
--- INSERT INTO location(id, create_date, update_date, name)
--- VALUES
--- ("1", Now(), Now(), "Bryne House"),
--- ("2", Now(), Now(), "Cannavino Library"),
--- ("3", Now(), Now(), "Champagnat Hall"),
--- ("4", Now(), Now(), "Chapel"),
--- ("5", Now(), Now(), "Cornell Boathouse"),
--- ("6", Now(), Now(), "Donnelly Hall"),
--- ("7", Now(), Now(), "Dyson Center"),
--- ("8", Now(), Now(), "Fern Tor"),
--- ("9", Now(), Now(), "Fontaine Hall"),
--- ("10", Now(), Now(), "Foy Townhouses"),
--- ("11", Now(), Now(), "Lower Fulton Street Townhouses"),
--- ("12", Now(), Now(), "Upper Fulton Street Townhouses"),
--- ("13", Now(), Now(), "Greystone"),
--- ("14", Now(), Now(), "Hancock Center"),
--- ("15", Now(), Now(), "Kieran Gatehouse"),
--- ("16", Now(), Now(), "Kirk House"),
--- ("17", Now(), Now(), "Leo Hall"),
--- ("18", Now(), Now(), "Longview Park"),
--- ("19", Now(), Now(), "Lowell Thomas Communication Center"),
--- ("20", Now(), Now(), "Lower Townhouses"),
--- ("21", Now(), Now(), "Marian Halll"),
--- ("22", Now(), Now(), "Marist Boathouse"),
--- ("23", Now(), Now(), "McCann Center"),
--- ("24", Now(), Now(), "Mid-Rise Hall"),
--- ("25", Now(), Now(), "North Campus Housing Complex"),
--- ("26", Now(), Now(), "St. Ann's Hermitage"),
--- ("27", Now(), Now(), "St. Peter's"),
--- ("28", Now(), Now(), "Science and Allied Health Building"),
--- ("29", Now(), Now(), "Sheahan Hall"),
--- ("30", Now(), Now(), "Steel Plant Studios and Gallery"),
--- ("31", Now(), Now(), "Dennis J. Murray Student Ceneter/Music Building"),
--- ("32", Now(), Now(), "Lower West Cedar Townhouses"),
--- ("33", Now(), Now(), "Upper West Cedar Townhouses");
+INSERT INTO location(create_date, update_date, name, latCord, longCord)
+VALUES
+ (Now(), Now(), "Bryne House", "41.720132", "-73.936647"),
+ (Now(), Now(), "Cannavino Library", "41.722114", "-73.934126"),
+ (Now(), Now(), "Champagnat Hall", "41.720494", "-73.935808"),
+ (Now(), Now(), "Chapel", "41.722193", "-73.933544"),
+ (Now(), Now(), "Cornell Boathouse", "41.721361", "-73.938409"),
+ (Now(), Now(), "Donnelly Hall", "41.720998", "-73.9325"),
+ (Now(), Now(), "Dyson Center", "41.724291", "-73.933083"),
+ (Now(), Now(), "Fern Tor", "41.728189", "-73.935784"),
+ (Now(), Now(), "Fontaine Hall", "41.725664", "-73.932973"),
+ (Now(), Now(), "Foy Townhouses", "41.724832", "-73.934391"),
+ (Now(), Now(), "Lower Fulton Street Townhouses", "41.722717", "-73.92881"),
+ (Now(), Now(), "Upper Fulton Street Townhouses", "41.72238", "-73.926672"),
+ (Now(), Now(), "Greystone", "41.721446", "-73.933893"),
+ (Now(), Now(), "Hancock Center", "41.722924", "-73.934496"),
+ (Now(), Now(), "Kieran Gatehouse", "41.723269", "-73.932264"),
+ (Now(), Now(), "Kirk House", "41.723881", "-73.935333"),
+ (Now(), Now(), "Leo Hall", "41.719472", "-73.936336"),
+ (Now(), Now(), "Longview Park", "41.72193", "-73.937953"),
+ (Now(), Now(), "Lowell Thomas Communication Center", "41.723278", "-73.932855"),
+ (Now(), Now(), "Lower Townhouses", "41.722768", "-73.935293"),
+ (Now(), Now(), "Marian Halll", "41.721157", "-73.934182"),
+ (Now(), Now(), "Marist Boathouse", "41.720741", "-73.938391"),
+ (Now(), Now(), "McCann Center", "41.71766", "-73.935349"),
+ (Now(), Now(), "Mid-Rise Hall", "41.721542", "-73.935899"),
+ (Now(), Now(), "North Campus Housing Complex", "41.726785", "-73.934131"),
+ (Now(), Now(), "St. Ann's Hermitage", "41.728189", "-73.934201"),
+ (Now(), Now(), "St. Peter's", "41.722493", "-73.932704"),
+ (Now(), Now(), "Science and Allied Health Building", "41.722261", "-73.930111"),
+ (Now(), Now(), "Sheahan Hall", "41.719186", "-73.935826"),
+ (Now(), Now(), "Steel Plant Studios and Gallery", "41.721403", "-73.930993"),
+ (Now(), Now(), "Dennis J. Murray Student Ceneter/Music Building", "41.72097", "-73.935185"),
+ (Now(), Now(), "Lower West Cedar Townhouses", "41.720401", "-73.92969"),
+ (Now(), Now(), "Upper West Cedar Townhouses", "41.720942", "-73.92628"),
+ (Now(), Now(), "Other", "41.722114", "-73.934126");
