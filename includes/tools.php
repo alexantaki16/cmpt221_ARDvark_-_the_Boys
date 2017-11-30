@@ -36,6 +36,74 @@
       }
   }
   
+  function foundTable($dbc){
+    $query = 'SELECT update_date, catagory, itemName, bName, status FROM stuff WHERE status = "lost" ORDER BY update_date DESC';
+    
+    $results = mysqli_query( $dbc, $query);
+    
+    echo "<table>";
+    echo "<tr>";
+    echo "<th colspan='4'>Items:</th>";
+    echo "</tr>";
+    echo "<tr>";
+    echo "<td><b>Posted:</b></td>";
+    echo "<td><b>Location:</b></td>";
+    echo "<td><b>Catagory:</b></td>";
+    echo "<td><b>Item Name:</b></td>";
+    echo "<td><b>Link:</b></td>";
+    echo "</tr>";
+      
+    while( $row = mysqli_fetch_array( $results, MYSQLI_ASSOC )){
+      echo "<tr>";
+      echo "<td>".$row['update_date']."</td>";
+      echo "<td>".$row['bName']."</td>";
+      echo "<td>".$row['catagory']."</td>";
+      echo "<td>".$row['itemName']."</td>";
+      // link echo "<td>".$row['catagory']."</td>";
+      echo "</tr>";
+
+    }
+    // end da table
+    echo "</table>";
+      
+    # free up space in memory
+    mysqli_free_result($results);
+  }
+  
+  function lostTable($dbc){
+    $query = 'SELECT update_date, catagory, itemName, bName, status FROM stuff WHERE status = "found" ORDER BY update_date DESC';
+    
+    $results = mysqli_query( $dbc, $query);
+    
+    echo "<table>";
+    echo "<tr>";
+    echo "<th colspan='4'>Items:</th>";
+    echo "</tr>";
+    echo "<tr>";
+    echo "<td><b>Posted:</b></td>";
+    echo "<td><b>Location:</b></td>";
+    echo "<td><b>Catagory:</b></td>";
+    echo "<td><b>Item Name:</b></td>";
+    echo "<td><b>Link:</b></td>";
+    echo "</tr>";
+      
+    while( $row = mysqli_fetch_array( $results, MYSQLI_ASSOC )){
+      echo "<tr>";
+      echo "<td>".$row['update_date']."</td>";
+      echo "<td>".$row['bName']."</td>";
+      echo "<td>".$row['catagory']."</td>";
+      echo "<td>".$row['itemName']."</td>";
+      // link echo "<td>".$row['catagory']."</td>";
+      echo "</tr>";
+
+    }
+    // end da table
+    echo "</table>";
+      
+    # free up space in memory
+    mysqli_free_result($results);
+  }
+  
   # sterilize the users input
   function sterilize($input){
     return htmlspecialchars($input);
