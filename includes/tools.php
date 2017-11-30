@@ -42,8 +42,8 @@
   }
   */
   
-  function insertItem($dbc, $name, $eMail, $item, $itemType, $desc, $status){
-    $query = 'INSERT INTO stuff(pName, E_Mail, itemName, catagory, description, status) VALUES ("'.$name.'","'.$eMail.'","'.$item.'","'.$itemType.'","'.$desc.'","'.$status.'")';
+  function insertItem($dbc, $name, $eMail, $item, $itemType, $local, $date, $desc, $status){
+    $query = 'INSERT INTO stuff(pName, email, itemName, catagory, create_date, update_date, lid, description, status) VALUES ("'.$name.'","'.$eMail.'","'.$item.'","'.$itemType.'","'.$date.'","'.$date.'","'.$local.'","'.$desc.'","'.$status.'")';
     
     return $results = mysqli_query($dbc, $query);
     
