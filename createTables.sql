@@ -38,13 +38,12 @@ CREATE TABLE stuff(
   description  TEXT NOT NULL,
   create_date  DATETIME NOT NULL,
   update_date  DATETIME NOT NULL,
-  --room         TEXT,
-  -- person name
-  pName       TEXT,
-  E-Mail      TEXT,
-  itemName    TEXT,
-  catagory    SET ('Clothes', 'Electronics', 'School Supplies', 'Personal Items', 'Other') NOT NULL,
-  status       SET ('found', 'lost', 'claimed') NOT NULL
+  pName        TEXT,
+  email        TEXT,
+  itemName     TEXT,
+  catagory     SET ('Clothes', 'Electronics', 'School Supplies', 'Personal Items', 'Other') NOT NULL,
+  status       SET ('found', 'lost', 'claimed') NOT NULL,
+  lid          char(3) REFERENCES location(lid)
   -- TODO stuff for location
   
 );
