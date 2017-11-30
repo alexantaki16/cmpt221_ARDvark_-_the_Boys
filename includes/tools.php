@@ -37,7 +37,7 @@
   }
   
   function foundTable($dbc){
-    $query = 'SELECT update_date, catagory, itemName, bName, status FROM stuff WHERE status = "lost" ORDER BY update_date DESC';
+    $query = 'SELECT itemName, bname, update_date, catagory FROM stuff WHERE status = "lost" ORDER BY update_date DESC';
     
     $results = mysqli_query( $dbc, $query);
     
@@ -46,19 +46,20 @@
     echo "<th colspan='4'>Items:</th>";
     echo "</tr>";
     echo "<tr>";
-    echo "<td><b>Posted:</b></td>";
-    echo "<td><b>Location:</b></td>";
-    echo "<td><b>Catagory:</b></td>";
     echo "<td><b>Item Name:</b></td>";
+    echo "<td><b>Location:</b></td>";
+    echo "<td><b>Posted:</b></td>";
+    echo "<td><b>Category:</b></td>";
     echo "<td><b>Link:</b></td>";
     echo "</tr>";
       
     while( $row = mysqli_fetch_array( $results, MYSQLI_ASSOC )){
       echo "<tr>";
-      echo "<td>".$row['update_date']."</td>";
-      echo "<td>".$row['bName']."</td>";
-      echo "<td>".$row['catagory']."</td>";
       echo "<td>".$row['itemName']."</td>";
+      echo "<td>".$row['bName']."</td>";
+      echo "<td>".$row['update_date']."</td>";
+      echo "<td>".$row['category']."</td>";
+      
       // link echo "<td>".$row['catagory']."</td>";
       echo "</tr>";
 
@@ -80,10 +81,10 @@
     echo "<th colspan='4'>Items:</th>";
     echo "</tr>";
     echo "<tr>";
-    echo "<td><b>Posted:</b></td>";
-    echo "<td><b>Location:</b></td>";
-    echo "<td><b>Catagory:</b></td>";
     echo "<td><b>Item Name:</b></td>";
+    echo "<td><b>Location:</b></td>";
+    echo "<td><b>Posted:</b></td>";
+    echo "<td><b>Category:</b></td>";
     echo "<td><b>Link:</b></td>";
     echo "</tr>";
       

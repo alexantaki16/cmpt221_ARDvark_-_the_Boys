@@ -1,15 +1,17 @@
-<!-- Johnathan Clementi, Alex Mahlmeister, Alex Antaki, Matt Oakley --
--- Prof: Casimer DeCusatis --
--- Date: 11/27/2017 --
--- Assignment: Limbo --
--- File name: found_listing.php --
+<!-- 
+Johnathan Clementi, Alex Mahlmeister, Alex Antaki, Matt Oakley 
+Prof: Casimer DeCusatis 
+Date: 11/27/2017 
+Assignment: Limbo 
+File name: managing_users.php
 -->
+
 <!DOCTYPE html>
 <?php
   //require('includes/connect_db.php');
   //require('includes/tools.php');
 	$fname = '';
-  $lname = '';
+	$lname = '';
 	$eMail = '';
 	$date = '';
 	$pass = '';
