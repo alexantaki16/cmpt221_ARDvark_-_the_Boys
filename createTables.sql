@@ -15,9 +15,9 @@ DROP TABLE IF EXISTS stuff;
 DROP TABLE IF EXISTS location;
 
 -- Weak entities 
-DROP TABLE IF EXISTS stuffLoc;
-DROP TABLE IF EXISTS peopleLoc;
-DROP TABLE IF EXISTS stuffPeeps;
+-- DROP TABLE IF EXISTS stuffLoc;
+-- DROP TABLE IF EXISTS peopleLoc;
+-- DROP TABLE IF EXISTS stuffPeeps;
 
 
 -- Users table holds limbo users / admins data
