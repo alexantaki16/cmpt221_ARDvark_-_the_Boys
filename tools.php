@@ -15,13 +15,21 @@ function valid_email($name){
   else
     return false;
 }
-
-
-function adminLogin($name){
-  $query = 'SELECT username FROM users WHERE username = "caz" AND pass = "doctorwho112"'; 
+#PSEDUO
+function adminLogin(){
+  $query = 'SELECT username FROM users WHERE username = "caz", pass = "doctorwho112" AND confPass = "doctorwho112"';
 }
 
+#PSEUDO
+function insertIntoTable($dateFound, $locationFound, $status, $item){
+  $query1 = 'INSERT INTO myTable(dateFound, location, status, item)
+  VALUES($dateFound, $locationFound, $status, $item)';
+  echo "Thank you for your submission.  Your input has been processed!";
+}
 
-
-?> 
-
+#PSEUDO
+function deleteFromTable($dateFound, $locationFound, $status, $item){
+  $query2 = 'DELETE FROM myTable($dateFound, $location, $status, $item)
+  WHERE status = 'claimed'';
+  echo "Thank you!  The item has been deleted from the table.";
+}
