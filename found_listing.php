@@ -8,9 +8,7 @@
 <?php
   require("includes/connect_db.php");
   require("includes/tools.php");
-  
-  echo "<script type='text/javascript'>window.onload = function();</script>";
-  
+
   $name = '';
   $eMail = '';
   $item = '';
@@ -74,7 +72,7 @@
     }
     # all of the fields have been filled out
     else{
-      if(insertItem($dbc, $name, $eMail, $item, $itemType, $desc, "found")){
+      if(insertItem($dbc, $name, $eMail, $item, $itemType, $local, $date, $desc, "found")){
         echo "Your item has sucessfully been added into the system.";
       }
       else{
@@ -114,10 +112,10 @@
 			<div class="container2">
 				<!--Navgation Bar-->
 				<ul>
-  					<li><a href="home.html">Home</a></li>
-  					<li><a class="active" href="found.html">Found Something?</a></li>
-  					<li><a href="lost.html">Lost Something?</a></li>
-  					<li><a href="admin.html">Admin Login</a></li>
+  					<li><a href="limbo_landing.php">Home</a></li>
+  					<li><a class="active" href="found.php">Found Something?</a></li>
+  					<li><a href="lost.php">Lost Something?</a></li>
+  					<li><a href="admin.php">Admin Login</a></li>
 				</ul>
 			<!--Grey Background DIV-->
 			<div class="first">
@@ -126,6 +124,7 @@
 				<h2>Listing lost items with Limbo is as easy as it gets.</br>Just fill out the following fields and the item</br>will be posted to our campus-wide database!</h2>
 				<br/>
 				<br/>
+        <a href="found.php">Return to found!</a>
 				<br/>
 				<br/>
 				<!--Contains the form information -->
@@ -146,7 +145,7 @@
               </select>
             * </p>
             <p>Location Found:
-               <select name="location" id="location">
+              <select name="location" id="location">
                 <option selected value="selected">--Select--</option>
                 <option <?php if($local=='Bryne House') echo 'selected="selected"' ?> value="Bryne House">Bryne House</option>
                 <option <?php if($local=='Cannavino Library') echo 'selected="selected"' ?> value="Cannavino Library">Cannavino Library</option>
@@ -186,7 +185,7 @@
               </select>
             * </p>
             <p>Date Found: <input type="datetime-local" name="date" required> *</p>
-            <h4>Description of Item: *</h4><textarea name="desc" id="desc" rows="10" cols="50" placeholder="Ex: TI-84 Graphing Calculator. Yellow and gray casing with clear battery case. Scuffs on side of calculator." ><?php if(!empty($desc)) echo $desc ?> </textarea>
+            <h4>Description of Item: *</h4><textarea name="desc" id="desc" rows="10" cols="50" placeholder="Ex: TI-84 Graphing Calculator. Yellow and gray casing with clear battery case. Scuffs on side of calculator." ><?php if(!empty($desc)) echo $desc ?></textarea>
             <p> <input type="submit"></p>
           </form>
 				</div>
