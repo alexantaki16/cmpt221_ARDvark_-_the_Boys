@@ -26,9 +26,7 @@ CREATE TABLE users(
   fname     TEXT NOT NULL,
   lname     TEXT NOT NULL,
   email     TEXT,
-  pass      TEXT NOT NULL,
-  reg_date  DATETIME NOT NULL,
-  admin     BOOLEAN NOT NULL
+  pass      TEXT NOT NULL
 );
 
 
