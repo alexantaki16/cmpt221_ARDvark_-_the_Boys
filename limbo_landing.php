@@ -24,10 +24,10 @@
 			<div class="container2">
 				<!--Navgation Bar-->
 				<ul>
-  					<li><a class="active" href="home.html">Home</a></li>
-  					<li><a href="found_listing.php">Found Something?</a></li>
-  					<li><a href="lost_listing.php">Lost Something?</a></li>
-  					<li><a href="admin.html">Admin Login</a></li>
+  					<li><a class="active" href="limbo_landing.php">Home</a></li>
+  					<li><a href="found.php">Found Something?</a></li>
+  					<li><a href="lost.php">Lost Something?</a></li>
+  					<li><a href="admin.php">Admin Login</a></li>
 				</ul>
 			<!--Grey Background DIV-->
 			<div class="first">
@@ -41,36 +41,6 @@
           <?php 
             makeFullTable($dbc);
           ?>
-          <!--
-					<table>
-						<tr>
-							<th colspan="4">Lost Items:</th>
-						</tr>
-  						<tr>
-    						<td><b>Posted:</b></td>
-   					  		<td><b>Location:</b></td>
-    						<td><b>Status:</b></td>
-    						<td><b>Link:</b></td>
-  						</tr>
-  						<tr>
-    						<td>28 October 2017</td>
-    						<td>Hancock Center</td>
-    						<td>Lost</td>
-    						<td>Ti-84 Calculator</td>
-  						</tr>
-  						<tr>
-    						<td>25 October 2017</td>
-    						<td>Dyson Building</td>
-    						<td>Found</td>
-    						<td>Grey Nike Sweatshirt</td>
-  						</tr>
-  						<tr>
-  							 <td>26 October 2017</td>
-    						 <td>Lowell Thomas</td>
-    						 <td>Found</td>
-    						 <td>Blue Brita Water Bottle</td>
-  				  	 	</tr>
-					</table>-->
 				</div>
 			</div>
 			</div>
