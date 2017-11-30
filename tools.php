@@ -20,9 +20,8 @@ function adminLogin(){
   $query = 'SELECT username FROM users WHERE username = "caz", pass = "doctorwho112" AND confPass = "doctorwho112"';
 }
 
-#PSEUDO
-function insertIntoTable($dateFound, $locationFound, $status, $item){
-  $query1 = 'INSERT INTO myTable(dateFound, location, status, item)
+function insertIntoTable($create_date, $room, $status, $description){
+  $query1 = 'INSERT INTO stuff($create_date, $room, $status, $description)
   VALUES($dateFound, $locationFound, $status, $item)';
   echo "Thank you for your submission.  Your input has been processed!";
 }
