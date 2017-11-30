@@ -21,14 +21,13 @@ function adminLogin(){
 }
 
 function insertIntoTable($create_date, $room, $status, $description){
-  $query1 = 'INSERT INTO stuff($create_date, $room, $status, $description)
+  $query = 'INSERT INTO stuff($create_date, $room, $status, $description)
   VALUES($dateFound, $locationFound, $status, $item)';
   echo "Thank you for your submission.  Your input has been processed!";
 }
 
-#PSEUDO
-function deleteFromTable($dateFound, $locationFound, $status, $item){
-  $query2 = 'DELETE FROM myTable($dateFound, $location, $status, $item)
+function deleteFromTable($create_date, $room, $status, $description){
+  $query = 'DELETE FROM stuff($dateFound, $location, $status, $description)
   WHERE status = 'claimed'';
   echo "Thank you!  The item has been deleted from the table.";
 }
