@@ -135,8 +135,8 @@
   }
   
   # makes sure the username and password entered are valid
-  function adminLogin($username, $password){
-    
+  function adminLogin($dbc, $username, $password){
+    /*
     $query = 'SELECT pass FROM users WHERE username = '.$username;    
     
     $results = mysqli_query( $dbc , $query );
@@ -144,6 +144,12 @@
     $row = mysqli_fetch_array( $results , MYSQLI_ASSOC );
     
     return password_verify($password, $row['pass']);
+    */
+      $query = 'SELECT pass FROM users WHERE username ='.$username;
+      $results = mysqli_query( $dbc, $query);
+      $row = mysqli_fetch_array( $results, MYSQLI_ASSOC );
+      
+      return ($password == $row['pass']);
   }
   /*
   function insertIntoTable($create_date, $room, $status, $description){
