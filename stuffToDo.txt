@@ -1,0 +1,15 @@
+Landing page with its links
+Lost something page 
+Found something page
+Quick link page
+Add new lost stuff
+Update lost stuff page
+Add new found stuff page
+Update found stuff page
+Admin login page
+Admin page change status of stuff
+Admin page delete stuff
+Add new admin users
+Delete admin users
+Update admin users
+Change admin user password
