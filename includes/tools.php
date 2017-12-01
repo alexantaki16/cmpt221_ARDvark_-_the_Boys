@@ -37,7 +37,7 @@
   }
   
   function foundTable($dbc){
-    $query = 'SELECT itemName, bname, update_date, catagory FROM stuff WHERE status = "lost" ORDER BY update_date DESC';
+    $query = 'SELECT itemName, bName, update_date, catagory FROM stuff WHERE status = "lost" ORDER BY update_date DESC';
     
     $results = mysqli_query( $dbc, $query);
     
@@ -58,12 +58,18 @@
       echo "<td>".$row['itemName']."</td>";
       echo "<td>".$row['bName']."</td>";
       echo "<td>".$row['update_date']."</td>";
-      echo "<td>".$row['category']."</td>";
+      echo "<td>".$row['catagory']."</td>";
       
       // link echo "<td>".$row['catagory']."</td>";
       echo "</tr>";
 
     }
+    // end da table
+    echo "</table>";
+      
+    # free up space in memory
+    mysqli_free_result($results);
+  }
     // end da table
     echo "</table>";
       
