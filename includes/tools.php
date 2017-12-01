@@ -199,6 +199,13 @@
   }
   */
   
+  function insertIntoUsers($dbc, $fname, $lname, $email, $pass) {
+   $query = 'INSERT INTO users(fname, lname, eMail, pass) VALUES ("' . $fname . '" , "' . $lname . '", "' . $email . '", "' . $pass . '")';
+   $results = mysqli_query($dbc, $query);
+   return $results;
+  }
+
+
   function insertItem($dbc, $name, $eMail, $item, $itemType, $local, $date, $desc, $status){
     $query = 'INSERT INTO stuff(pName, email, itemName, catagory, create_date, update_date, bName, description, status) VALUES ("'.$name.'","'.$eMail.'","'.$item.'","'.$itemType.'","'.$date.'","'.$date.'","'.$local.'","'.$desc.'","'.$status.'")';
     
