@@ -1,0 +1,122 @@
+body {
+	background-image: url("http://blog.hostbaby.com/backgrounds/bg_lightwoodfloor.jpg");
+	background-size: cover;
+	color: cyan;
+	font-size: 25px;
+	/*This section contains all of the CSS involved with the background.*/
+	}
+.background1 {
+	margin: auto;
+	font-family: sans-serif;
+	text-align: center;
+	font-weight:bold;
+	color: orange;
+	/*Background 1 is the big container div that continas all of the text in this page.*/
+	}
+.background2 {
+	width:50%;
+	height:175px;
+	margin:auto;
+	font-family:sans-serif;
+	text-align:center;
+	font-size:55%;
+	font-weight:bold;
+	padding-right: 20px;
+	padding-top: 10px;
+	color: blue;
+	/*Background 2 positions the text and centers it to make it look nicer.*/
+	}
+
+ul {
+	list-style-type: none; 
+	/*This simply gets rid of the bullet point in the list.*/
+	}
+ul li {
+	padding-right: 40px;
+	/*This padding is used to keep the list centered.*/
+	}
+ul li p {
+	font-size: 55%;
+	/*This changes the font size of the list items.*/
+	}
+#otherpages {
+	padding-top: 8px;
+	/*This padding was used to create a space between the words "other page" from
+	the top of the orange background.*/
+	}
+#funfact2 {
+	font-size: 15px;
+	position: relative; bottom: -5px;
+	position: relative; left: -247px;
+	font-weight: bold;
+	color: blue;
+	/*This id was used to position the text for the fun fact on the bottom of the screen.*/
+}	
+a:visited { 
+	color:red;
+	/*This was used to describe the status of a link.  It changes the color of the
+	link, after it has been clicked, to red.*/
+	}
+a:hover {
+	color:green;
+	/*This was used to describe the status of the link again.  It changes the color
+	of the link when you over over it to green.*/
+	}
+a:active {
+	color:purple;
+	/*This was used to describe that status of the link for a third time.  It changes
+	the color to purple once the link has been activated.*/
+	}
+.userinput {
+	position: relative; bottom: -315px;
+	position: relative; left: 660px;
+	/*This class controls the  location of the fun fact button.*/
+	}
+br {
+	line-height: 1px;
+	/*This controls the spacing of the breaks for the text in "background1".*/
+}
+#button {
+	position: relative; top: -10px;
+	/*This controls the location of the button.*/
+}			
+#menu{
+	position: relative; right: 24px;
+	width: 650px;
+	height: 35px;
+	font-size: 14px;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-weight: bold;
+	text-align: center;
+	background-color: #8AD9FF;
+	border-radius: 8px;
+	/*This creates the nav bar on my website but it does not style it at all.  The next few ids
+	do this.*/
+}
+#menu ul {
+	height: auto;
+	padding: 8px 0px;
+	margin: 0px;
+	margin: auto;
+	/*This centers the nav bar and also gives it some padding to the tabs do look squished together.*/
+}
+#menu li {
+	display: inline;
+	padding: 10px;
+	margin: auto;
+	/*This adjusts the styling of the list items.  For example, this is what adjust the tabs to line
+	up horizontally.*/
+}
+#menu a{
+	text-decoration: none;
+	color: #00F;
+	padding: 8px 8px 8px 8px;
+	margin: auto;
+	/*This controls the links themselves.  It gets rid of the bullet points from unorganized list
+	and it changes the colors of the link.*/
+}
+#menu a:hover{
+	color: white;
+	background-color: #f99704;
+	/*This changes the color of the link when you hover over it.  The background of the nav bar changes to white.*/
+}

@@ -1,0 +1,87 @@
+body {
+	background-image: url("http://www.fecr.com/wp-content/uploads/2014/07/New-York-City-background.jpg");
+	/*This contains the image of New York City*/ 
+}
+.background1 {
+	background-color:rgba(1,56,145,0);
+	width: 600px;
+	height: 255px;
+	margin: auto;
+	font-family: sans-serif;
+	text-align: center;
+	font-weight:bold;
+	/*Background 1 is the big container div that continas all of the text in this page.*/
+	}
+.background2 {
+	width:80%;
+	height:175px;
+	margin:auto;
+	font-family:sans-serif;
+	text-align:center;
+	font-size:15px;
+	position: relative; top: -160px;
+	position: relative; left: 35px;
+	padding-right: 60px;
+	padding-top: 10px;
+	/*Background 2 positions the text and centers it to make it look nicer.*/
+	}
+
+a:visited { 
+	color:red;
+	/*This was used to describe the status of a link.  It changes the color of the
+	link, after it has been clicked, to red.*/
+	}
+a:hover {
+	color:green;
+	/*This was used to describe the status of the link again.  It changes the color
+	of the link when you over over it to green.*/
+	}
+a:active {
+	color:purple;
+	/*This was used to describe that status of the link for a third time.  It changes
+	the color to purple once the link has been activated.*/
+	}
+br {
+	line-height: 1px;
+	/*This controls the spacing of the breaks for the text in "background1".*/
+}
+#menu{
+	position: relative; right: 24px;
+	width: 650px;
+	height: 35px;
+	font-size: 14px;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-weight: bold;
+	text-align: center;
+	background-color: #8AD9FF;
+	border-radius: 8px;
+	/*This creates the nav bar on my website but it does not style it at all.  The next few ids
+	do this.*/
+}
+#menu ul {
+	height: auto;
+	padding: 8px 0px;
+	margin: 0px;
+	margin: auto;
+	/*This centers the nav bar and also gives it some padding to the tabs do look squished together.*/
+}
+#menu li {
+	display: inline;
+	padding: 10px;
+	margin: auto;
+	/*This adjusts the styling of the list items.  For example, this is what adjust the tabs to line
+	up horizontally.*/
+}
+#menu a{
+	text-decoration: none;
+	color: #00F;
+	padding: 8px 8px 8px 8px;
+	margin: auto;
+	/*This controls the links themselves.  It gets rid of the bullet points from unorganized list
+	and it changes the colors of the link.*/
+}
+#menu a:hover{
+	color: white;
+	background-color: #f99704;
+	/*This changes the color of the link when you hover over it.  The background of the nav bar changes to white.*/
+}
