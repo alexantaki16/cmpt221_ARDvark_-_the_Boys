@@ -28,10 +28,10 @@ header("Location: login.php");
 			<div class="container2">
 				<!--Navgation Bar-->
 				<ul>
-  					<li><a href="home.html">Home</a></li>
-  					<li><a href="found.html">Found Something?</a></li>
-  					<li><a href="lost.html">Lost Something?</a></li>
-  					<li><a class="active" href="admin.html">Admin Login</a></li>
+  					<li><a href="limbo_landing.php">Home</a></li>
+  					<li><a href="found.php">Found Something?</a></li>
+  					<li><a href="lost.php">Lost Something?</a></li>
+  					<li><a class="active" href="login.php">Admin Login</a></li>
 				</ul>
 			<!--Grey Background DIV-->
 			<div class="first">
@@ -41,19 +41,20 @@ header("Location: login.php");
 				<!--Red background Div-->
 				<div class="table_div">
 					<!--text-->
-					<h1>Welcome, Admin!</h1>
+					<h1>Welcome!</h1>
 					<br/>
 					<br/>
 					<!--Quik Link Bar-->
 					<div class="button">
-						<a href="#">Manage Users</a>
-  						<a href="admin_lost.html">Manage Lost Items</a>
- 					    <a href="admin_found.html">Manage Found Items</a>
+						<a href="managing_users.php">Manage Users</a>
+  						<a href="admin_lost.php">Manage Lost Items</a>
+ 					    <a href="admin_found.php">Manage Found Items</a>
   						<a href="#">Settings</a>
   						<a href="logout.php">Log Off</a>
 					</div>
 				</div>		
 			</div>
+                
 			</div>
 			</div>
 		</body>

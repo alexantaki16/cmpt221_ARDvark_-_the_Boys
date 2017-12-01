@@ -27,7 +27,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 	<!--Makes website responsive to device-->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<!--Link to Style Sheet-->
-	<link rel="stylesheet" type="text/css" href="admin.css">
+	<link rel="stylesheet" type="text/css" href="login.css">
 		<!--Title-->
 		<title>Limbo - Admin</title>
 	</head>
@@ -41,10 +41,10 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 			<div class="container2">
 				<!--Navgation Bar-->
 				<ul>
-  					<li><a href="home.html">Home</a></li>
-  					<li><a href="found.html">Found Something?</a></li>
-  					<li><a href="lost.html">Lost Something?</a></li>
-  					<li><a class="active" href="admin.html">Admin Login</a></li>
+  					<li><a href="limbo_landing.php">Home</a></li>
+  					<li><a href="found.php">Found Something?</a></li>
+  					<li><a href="lost.php">Lost Something?</a></li>
+  					<li><a class="active" href="admin.php">Admin Login</a></li>
 				</ul>
 			<!--Grey Background DIV-->
 			<div class="first">
