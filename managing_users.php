@@ -1,40 +1,59 @@
-<!-- 
-Johnathan Clementi, Alex Mahlmeister, Alex Antaki, Matt Oakley 
-Prof: Casimer DeCusatis 
-Date: 11/27/2017 
-Assignment: Limbo 
-File name: managing_users.php
+<!-- Johnathan Clementi, Alex Mahlmeister, Alex Antaki, Matt Oakley --
+-- Prof: Casimer DeCusatis --
+-- Date: 11/27/2017 --
+-- Assignment: Limbo --
+-- File name: found_listing.php --
 -->
-
 <!DOCTYPE html>
 <?php
-  //require('includes/connect_db.php');
-  //require('includes/tools.php');
+  require("includes/connect_db.php");
+  require("includes/tools.php");
 	$fname = '';
-	$lname = '';
+  $lname = '';
 	$eMail = '';
-	$date = '';
 	$pass = '';
-  $conPass = '';
+	$missing = False;
+	$invalid = False;
+
   if($_SERVER[ 'REQUEST_METHOD' ] == 'POST'){
+
     $fname = $_POST['fname'];
+		if(empty($fname)){
+			$missing = True;
+		}
 
     $lname = $_POST['lname'];
+		if(empty($lname)){
+			$missing = True;
+		}
 
 	  $eMail = $_POST['eMail'];
-
-    $date = $_POST['date'];
+		if(empty($eMail)){
+			$missing = True;
+		}else if(!(valid_email($eMail))){
+		  $invalid = True;
+		}
 
     $pass = $_POST['pass'];
+		if(empty($pass)){
+			$missing = True;
+		}
 
-    $conPass = $_POST['conPass'];
 
-    echo "<h1>".$fname."</h1>";
-    echo "<h1>".$lname."</h1>";
-    echo "<h1>".$eMail."</h1>";
-    echo "<h1>".$date."</h1>";
-    echo "<h1>".$pass."</h1>";
-    echo "<h1>".$conPass."</h1>";
+		if($missing){
+			echo '<script type = "text/javascript">alert("You must fill out all fields!");</script>';
+		}
+		else if($invalid){
+			echo '<script type = "text/javascript">alert("One of your fields is not filled properly!");</script>';
+		}
+		else{
+			if(insertIntoUsers($dbc, $fname, $lname, $eMail, $pass)){
+				echo "Your new admin has been successfully added into the system.";
+			}
+			else{
+				echo "<h1> You have encountered an unexpected error contact the almighty Cas for assistance </h1>";
+			}
+	  }
   }
 ?>
 	<!--Sets HTML Language-->
@@ -59,7 +78,7 @@ File name: managing_users.php
 				<!--Navgation Bar-->
 				<ul>
   					<li><a href="home.html">Home</a></li>
-  					<li><a href="found.html">Found Something?</a></li>
+  					<li><a class="active" href="found.html">Found Something?</a></li>
   					<li><a href="lost.html">Lost Something?</a></li>
   					<li><a href="admin.html">Admin Login</a></li>
 				</ul>
@@ -67,21 +86,20 @@ File name: managing_users.php
 			<div class="first">
 				<!--Text-->
 				<h1>Manage Users</h1>
-				<h2>Managing your users is as easy as pie</h2>
-			  <br/>
+				<h2>Managing your users is as easy as pie</br>
 				<br/>
 				<br/>
 				<br/>
 				<!--Contains the form information -->
 				<div class="table_div">
-          <form action="manage_users.php" method="POST">
+          <form action="managing_users.php" method="POST">
             <p>First Name: <input type="text" name="fname" placeholder="Ex: John" value="<?php if(isset($_POST['fname'])) echo $_POST['fname']; ?>"></p>
             <p>Last Name: <input type="text" name="lname" placeholder="Ex: Smith" value="<?php if(isset($_POST['lname'])) echo $_POST['lname']; ?>"></p>
             <p>E-mail: <input type="text" name="eMail" placeholder="Ex: John.Smith1@marist,edu" value="<?php if(isset($_POST['"eMail'])) echo $_POST['"eMail']; ?>"></p>
-            <!--<p>Date Found: <input type="datetime-local" name="date"> </p> -->
             <p>Password: <input type="text" name="pass" placeholder="Ex: he11oWorld" value="<?php if(isset($_POST['pass'])) echo $_POST['pass']; ?>"></p>
             <p>Confirm Password: <input type="text" name="conPass" placeholder="Ex: he11oWorld" value="<?php if(isset($_POST['conPass'])) echo $_POST['conPass']; ?>"></p>
-            <p> <input type="submit"></p>
+
+						<p> <input type="submit"/></p>
           </form>
 				</div>
 			</div>
