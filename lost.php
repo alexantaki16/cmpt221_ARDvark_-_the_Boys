@@ -27,7 +27,7 @@
   					<li><a href="limbo_landing.php">Home</a></li>
   					<li><a href="found.php">Found Something?</a></li>
   					<li><a class="active" href="lost.php">Lost Something?</a></li>
-  					<li><a href="admin.php">Admin Login</a></li>
+  					<li><a href="login.php">Admin Login</a></li>
 				</ul>
 			<!--Grey Background DIV-->
 			<div class="first">

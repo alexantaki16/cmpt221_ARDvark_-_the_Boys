@@ -18,9 +18,12 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
         header("Location: admin_quick.php");
     }else{
         echo "WRONG!";
+        echo "<img src='Pictures/trumpWrong.gif'/>";
     }
 }
-            ?>
+?>
+
+
 	<html lang="en-us">
 	<!--Header-->
 	<head>

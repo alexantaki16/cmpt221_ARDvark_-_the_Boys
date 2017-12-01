@@ -1,0 +1,5 @@
+Update lost stuff page
+Update found stuff page
+Admin page change status of stuff
+Update admin users
+Change admin user password
