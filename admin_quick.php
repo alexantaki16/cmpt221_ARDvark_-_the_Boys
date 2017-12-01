@@ -1,6 +1,3 @@
-<!DOCTYPE html>
-	<!--Sets HTML Language-->
-
 <?php
     session_start();
     if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] == false){
@@ -8,6 +5,9 @@ header("Location: login.php");
 }
 
         ?>
+
+<!DOCTYPE html>
+	<!--Sets HTML Language-->
 	<html lang="en-us">
 	<!--Header-->
 	<head>
@@ -50,7 +50,7 @@ header("Location: login.php");
   						<a href="admin_lost.html">Manage Lost Items</a>
  					    <a href="admin_found.html">Manage Found Items</a>
   						<a href="#">Settings</a>
-  						<a href="#">Log Off</a>
+  						<a href="logout.php">Log Off</a>
 					</div>
 				</div>		
 			</div>

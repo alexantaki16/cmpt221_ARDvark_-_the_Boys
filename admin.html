@@ -39,19 +39,15 @@
 					<!--sign in div-->
 					<div class="sign_in">
 						<!--username sign in textbox-->
-						<h2>Username:</h2>
-						<input style= "height:20px" type="text" id="username" placeholder="John.Smith">
-						<br/>
-						<br/>
-						<!--password textbox-->
-						<h2>Password:</h2>
-						<input style= "height:20px" type="text" id="password" placeholder="*********">
-						<br/>
-						<br/>
-						<!--submit button-->
-						<form action="admin_quick.html">
-    						<input type="submit" value="Log In" href="admin_quick.html" />
-						</form>
+						<form method="post" action="index.php">
+                            Username:
+                            <br/>
+                            <input type="text" name="username"><br/>
+                            Password
+                            <br/>
+                            <input type="password" name="password"><br/>
+                            <input type="submit" value="Login"
+                        </form>
 					</div>
 				</div>
 			</div>
