@@ -139,6 +139,7 @@
     
     return password_verify($password, $row['pass']);
   }
+  
   /*
   function insertIntoTable($create_date, $room, $status, $description){
     $query = 'INSERT INTO stuff($create_date, $room, $status, $description)

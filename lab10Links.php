@@ -12,20 +12,20 @@ RC  07-Nov-13   Created.
 require( 'includes/connect_db.php' ) ;
 
 # Connect to MySQL server and the database
-require( 'presidents_login_tools.php' ) ;
+require( 'tools.php' ) ;
 
 if ($_SERVER[ 'REQUEST_METHOD' ] == 'POST') {
 
 	#The next two variables will take and validate the input
 	$lname = $_POST['lname'] ;
 
-    $num = validate($lname) ;
+    $sid = validate($lname) ;
 
-    if($num == -1)
+    if($sid == -1)
       echo '<P style=color:red>Login failed please try again.</P>' ;
 
     else
-      load('linkypresidents.php', $num);
+      load('tools.php', $sid);
 }
 ?>
 <!-- Get inputs from the user. -->
@@ -55,7 +55,7 @@ RC	 7-Nov-13	Created.
 require( 'includes/helpers.php' ) ;
 
 # Loads a specified or default URL.
-function load( $page = 'linkypresidents.php', $num = -1 )
+function load( $page = 'limbo_landing.php', $num = -1 )
 {
   # Begin URL with protocol, domain, and current directory.
   $url = 'http://' . $_SERVER[ 'HTTP_HOST' ] . dirname( $_SERVER[ 'PHP_SELF' ] ) ;
@@ -75,7 +75,7 @@ function load( $page = 'linkypresidents.php', $num = -1 )
 # Validates the print name.
 # Returns -1 if validate fails, and >= 0 if it succeeds
 # which is the primary key id.
-function validate($prname = '')
+function validate($sid = '')
 {
     global $dbc;
 
@@ -83,7 +83,7 @@ function validate($prname = '')
       return -1 ;
 
     # Make the query
-    $query = "SELECT num, lname FROM presidents WHERE lname='" . $prname . "'" ;
+    $query = "SELECT sid FROM stuff WHERE sid='" . $sid . "'" ;
     show_query($query) ;
 
     # Execute the query
@@ -97,8 +97,8 @@ function validate($prname = '')
     # We have at least one row, so get the frist one and return it
     $row = mysqli_fetch_array($results, MYSQLI_ASSOC) ;
 
-    $num = $row [ 'num' ] ;
+    $sid = $row [ 'sid' ] ;
 
-    return intval($num) ;
+    return intval($sid) ;
 }
 ?>
