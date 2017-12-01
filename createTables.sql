@@ -1,4 +1,4 @@
--- Johnathan Clementi, Alex Mahlmeister, Alex Antaki, Matt Oakley -- 
+-- Johnathan Clementi, Alex Mahlmeister, Alex Antaki, Matt Oakley --
 -- Prof: Casimer DeCusatis --
 -- Date: 11/26/2017 --
 -- Assignment: Limbo --
@@ -14,10 +14,10 @@ DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS stuff;
 DROP TABLE IF EXISTS location;
 
--- Weak entities 
--- DROP TABLE IF EXISTS stuffLoc;
--- DROP TABLE IF EXISTS peopleLoc;
--- DROP TABLE IF EXISTS stuffPeeps;
+-- Weak entities
+DROP TABLE IF EXISTS stuffLoc;
+DROP TABLE IF EXISTS peopleLoc;
+DROP TABLE IF EXISTS stuffPeeps;
 
 
 -- Users table holds limbo users / admins data
@@ -26,9 +26,24 @@ CREATE TABLE users(
   fname     TEXT NOT NULL,
   lname     TEXT NOT NULL,
   email     TEXT,
-  pass      TEXT NOT NULL
+  pass      TEXT NOT NULL,
+  reg_date  DATETIME NOT NULL,
+  admin     BOOLEAN NOT NULL
 );
 
+INSERT INTO users(fname, lname, email, pass, reg_date, admin)
+VALUES ("cass", 'deca', 'cass@marist.edu', 'gttdhthtfgtd5466456', Now(), true);
+
+
+-- Location table holds location data
+CREATE TABLE location(
+  lid           INT AUTO_INCREMENT PRIMARY KEY,
+  name          TEXT NOT NULL,
+  create_date   DATETIME NOT NULL,
+  update_date   DATETIME NOT NULL,
+  latCord       FLOAT(10,6) NOT NULL,
+  longCord      FLOAT(10,6) NOT NULL
+);
 
 -- Stuff table holds lost and found stuff
 CREATE TABLE stuff(
@@ -41,18 +56,8 @@ CREATE TABLE stuff(
   itemName     TEXT,
   catagory     SET ('Clothes', 'Electronics', 'School Supplies', 'Personal Items', 'Other') NOT NULL,
   status       SET ('found', 'lost', 'claimed') NOT NULL,
-  lid          INT REFERENCES location(lid)
-);
-
-
--- Location table holds location data
-CREATE TABLE location(
-  lid           INT AUTO_INCREMENT PRIMARY KEY,
-  name          TEXT NOT NULL,
-  create_date   DATETIME NOT NULL,
-  update_date   DATETIME NOT NULL,
-  latCord       FLOAT(10,6) NOT NULL,
-  longCord      FLOAT(10,6) NOT NULL
+  /*lid          INT REFERENCES location(lid)*/
+  bName        TEXT REFERENCES location(name)
 );
 
 
