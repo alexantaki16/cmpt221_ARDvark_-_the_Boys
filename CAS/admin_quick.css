@@ -1,0 +1,159 @@
+/*Navigation Bar Dimensions*/
+ul {
+list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    width:997px;
+}
+
+/* Horizontal Navigation Bar*/
+li {
+    float: left;
+}
+
+/* Dimensions/ Attributes to Navigation Tabs*/
+li a {
+   	display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 80px;
+    text-decoration: none;
+    overflow: auto;
+}
+
+/* Hover Attribute for Navigation Bar*/
+li a:hover:not(.active) {
+    background-color: #111;
+}
+
+/* Makes Home Navigation Tab Red*/
+.active {
+    background-color: #E21E3C;
+}
+
+/*hover select*/
+
+a.ex1:hover, a.ex1:active {color: red;}
+
+
+/*background image */
+body {
+    background-image: url("Pictures/RedFoxLogo.png");
+    background-repeat: no-repeat;
+   	background-size: 500px 500px;
+   	background-position: 359px 200px;
+}
+
+/*Align H2 text to Center*/
+h2 {
+    text-align: center;
+}
+
+
+/*title*/
+IMG.title {
+    display: block;
+    margin-left: 50px;
+    height: 75px;
+    width: 175px;
+
+}
+
+/*Dimensions of Picture Slide DIV and centers it*/
+div.slide {
+	margin-left: 50px;
+    margin-right: 50px;
+    height: 90%;
+    width: 90%;
+
+}
+
+
+/*background DIV*/
+div.container {
+width: 90%;
+border: 1px black;
+color:black;
+margin-left: auto ;
+margin-right: auto;
+margin-top:50px;
+height:500px;
+opacity: 1;
+
+}
+
+/*Invisible DIV*/
+div.container2 {
+width:90%;
+height:75%;
+border:0px;
+color:black;
+margin-left: auto ;
+margin-right: auto;
+}
+
+/*Grey Background Div*/
+.first {
+text-align:center;
+float:left;
+width:995px;
+height:550px;
+background-color:#D3D3D3;
+border: 1px solid gray;
+font-family:Arial;
+padding:.1em;
+color:black;
+margin-left: auto ;
+margin-right: auto;
+}
+
+/*Red Background Div*/
+.table_div {
+width:80%;
+height:80%;
+border:0px;
+margin-left: auto;
+margin-right: auto;
+background-color:#E21E3C;
+overflow-x:auto;
+overflow-y:auto;
+border-radius: 25px;
+}
+
+/*Div Contains sign in information*/
+.sign_in{
+margin:left;
+padding-right:450px;
+}
+
+/*Manages text with h2 tag*/
+h2 {
+ margin: auto;
+}
+
+/*Contains red fox logo*/
+.table_div{
+	background-image: url("Pictures/RedFoxLogo.png");
+    background-repeat: no-repeat;
+   	background-size: 300px 300px;
+   	background-position: 375px 75px;
+}
+
+/*Styles the vertical quick link bar*/
+.button a {
+    background-color: #eee;
+    color: black;
+    display: block;
+    padding: 16px;
+    text-decoration: none;
+    width:200px;
+    margin-left: 50px;
+    border-radius: 25px;
+}
+
+/*Manages hover attribute for quick link */
+.button a:hover {
+    background-color: #ccc;
+}
