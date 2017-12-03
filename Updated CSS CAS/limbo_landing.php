@@ -1,5 +1,6 @@
 <!DOCTYPE html>
   <?php
+    #This script will allow us to use the necessary functions in order to run the page properly
     require("includes/connect_db.php");
     require("includes/tools.php");
   ?>
@@ -39,13 +40,12 @@
 				<br/>
 				<div class="table_div">
           <?php
+            #This will make the full table and populate it
             makeFullTable($dbc);
           ?>
 				</div>
 			</div>
 			</div>
-
-
 			</div>
 		</body>
 	</html>

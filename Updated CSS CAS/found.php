@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<?php
-  require("includes/connect_db.php");
-  require("includes/tools.php");
-?>
+  <!--This php script will allow us to have access to the necessary function to run the page-->
+  <?php
+    require("includes/connect_db.php");
+    require("includes/tools.php");
+  ?>
 
 	<!--Sets HTML Language-->
 	<html lang="en-us">
@@ -43,6 +44,7 @@
 				<!--Invisible Div for table-->
 				<div class="table_div">
 					<?php
+            #This will populate the table
             foundTable($dbc);
           ?>
 				</div>

@@ -1,8 +1,10 @@
 <!DOCTYPE html>
-<?php
-  require("includes/connect_db.php");
-  require("includes/tools.php");
-?>
+
+  <?php
+    #This script will give us access to the necessary php scripts.
+    require("includes/connect_db.php");
+    require("includes/tools.php");
+  ?>
 	<!--Sets HTML Language-->
 	<html lang="en-us">
 	<!--Header-->
@@ -17,10 +19,11 @@
 		<!--body-->
 		<body>
       <script>
-function goBack() {
-    window.history.back();
-}
-</script>
+        //This will allow us to go back to the previous page incase the item you chose wasn't the one you thought.
+        function goBack() {
+          window.history.back();
+        }
+      </script>
 			<!--background DIV-->
 			<div class="container">
 			<!--image title-->
@@ -48,6 +51,7 @@ function goBack() {
 				<!--Invisible Div for table-->
 				<div class="table_div">
         <?php
+          #This will allow us to complete the table
 					completeTable($dbc, $_GET['sid']);
         ?>
 				</div>

@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<?php
-  require("includes/connect_db.php");
-  require("includes/tools.php");
-?>
+  <?php
+    #This will allow us to have access to the nexessary php files for this page
+    require("includes/connect_db.php");
+    require("includes/tools.php");
+  ?>
 	<!--Sets HTML Language-->
 	<html lang="en-us">
 	<!--Header-->
@@ -43,6 +44,7 @@
 				<!--Invisible Div for table-->
 				<div class="table_div">
         <?php
+          #This will display the lost table.
 					lostTable($dbc);
         ?>
 				</div>

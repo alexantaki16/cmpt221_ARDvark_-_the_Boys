@@ -4,23 +4,24 @@
 -- Assignment: Limbo --
 -- File name: createTables.sql --
 
--- Creates the limbo database
+-- Creates the limbo database and by getting rid of any database that was called limbo_db
+-- and creates a new one and then uses it.
 drop database if exists limbo_db;
 create database limbo_db ;
 use limbo_db ;
 
--- Strong entities
+-- This will purge any existing tables called users, stuff, and location
 DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS stuff;
 DROP TABLE IF EXISTS location;
 
--- Weak entities
+-- This will drop any existing tables called stuffLoc, peopleLoc, stuffPeeps
 DROP TABLE IF EXISTS stuffLoc;
 DROP TABLE IF EXISTS peopleLoc;
 DROP TABLE IF EXISTS stuffPeeps;
 
 
--- Users table holds limbo users / admins data
+-- This table will house our users (Admins) and they will all have the same attributes
 CREATE TABLE users(
   uid       INT AUTO_INCREMENT PRIMARY KEY,
   username  TEXT NOT NULL,
@@ -32,11 +33,13 @@ CREATE TABLE users(
   admin     BOOLEAN NOT NULL
 );
 
+-- This will insert into the users table above, a super admin, named Caz.
 INSERT INTO users(fname, lname, email, username, pass, reg_date, admin)
 VALUES ("Caz", 'Deca', 'Caz@marist.edu', 'admin', 'gaze11e', Now(), true);
 
 
--- Location table holds location data
+-- This table will house the location of the lat and long coords.  This will give the
+-- user a better visual of where their lost or found item is precisely.
 CREATE TABLE location(
   lid           INT AUTO_INCREMENT PRIMARY KEY,
   name          TEXT NOT NULL,
@@ -46,7 +49,8 @@ CREATE TABLE location(
   longCord      FLOAT(10,6) NOT NULL
 );
 
--- Stuff table holds lost and found stuff
+-- This table houses the information in stuff table, it will give every item the same
+-- attributes.
 CREATE TABLE stuff(
   sid          INT AUTO_INCREMENT PRIMARY KEY,
   description  TEXT NOT NULL,
@@ -57,12 +61,12 @@ CREATE TABLE stuff(
   itemName     TEXT,
   catagory     SET ('Clothes', 'Electronics', 'School Supplies', 'Personal Items', 'Other') NOT NULL,
   status       SET ('found', 'lost', 'claimed') NOT NULL,
-  /*lid          INT REFERENCES location(lid)*/
   bName        TEXT REFERENCES location(name)
 );
 
 
--- #We insert values into the table so we can add to our buildings database
+-- These statemsnt will give the locations table the exact coordinates of the buildings
+-- on campus
 INSERT INTO location(create_date, update_date, name, latCord, longCord)
 VALUES
  (Now(), Now(), "Bryne House", "41.720132", "-73.936647"),

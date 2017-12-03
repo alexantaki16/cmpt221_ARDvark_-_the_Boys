@@ -1,11 +1,17 @@
 <?php
+  #This php script will start the session and check the login infor
   session_start();
+
+  #Here is where the login info is being tested
   if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] == false){
     header("Location: login.php");
   }
+
+  #We must include these scripts so we can properly run the pages
   require("includes/connect_db.php");
   require("includes/tools.php");
 
+  #This will allow us to delete an admin based on their ID
   if($_SERVER[ 'REQUEST_METHOD' ] == 'POST'){
     $id = $_POST['id'];
     deleteFoundItem($dbc, $id);
@@ -52,6 +58,7 @@
           ?>
 					<br/>
 					</div>
+          <!--This will use a simple text box that will delete the user based off of their ID that was input originally.-->
           <form action="admin_found.php" method="POST">\
             <br/>
             <br/>
@@ -66,7 +73,6 @@
 				<br/>
 				</div>
 			</div>
-
 			</div>
 			</div>
 		</body>

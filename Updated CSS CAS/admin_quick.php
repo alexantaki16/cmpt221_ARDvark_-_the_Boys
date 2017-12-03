@@ -1,12 +1,14 @@
 <?php
+    #This will start the session and test if the log in is correct and properly redirect you.
     session_start();
     if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] == false){
-header("Location: login.php");
-}
+      header("Location: login.php");
+    }
 
-  require("includes/connect_db.php");
-  require("includes/tools.php");
-        ?>
+    #This will give us access to the necessary php scripts in order to run this
+    require("includes/connect_db.php");
+    require("includes/tools.php");
+?>
 
 <!DOCTYPE html>
 	<!--Sets HTML Language-->
@@ -48,15 +50,13 @@ header("Location: login.php");
 					<br/>
 					<!--Quik Link Bar-->
 					<div class="button">
-						<a href="managing_users.php">Manage Users</a>
-  						<a href="admin_lost.php">Manage Lost Items</a>
- 					    <a href="admin_found.php">Manage Found Items</a>
-  						<a href="#">Settings</a>
+						<a href="managing_users.php">Manage Users</a><br/>
+  						<a href="admin_lost.php">Manage Lost Items</a><br/>
+ 					    <a href="admin_found.php">Manage Found Items</a><br/>
   						<a href="logout.php">Log Off</a>
 					</div>
 				</div>
 			</div>
-
 			</div>
 			</div>
 		</body>

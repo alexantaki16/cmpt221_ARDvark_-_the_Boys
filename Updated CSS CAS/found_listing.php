@@ -5,21 +5,25 @@
 -- File name: found_listing.php --
 -->
 <!DOCTYPE html>
-<?php
-  require("includes/connect_db.php");
-  require("includes/tools.php");
+  <!--This php script will test whether the values entered are correct and valid-->
+  <?php
+    #This will give us access to the necessary functions this page requires
+    require("includes/connect_db.php");
+    require("includes/tools.php");
 
-  $name = '';
-  $eMail = '';
-  $item = '';
-  $itemType = '';
-  $local = '';
-  $date = '';
-  $desc = '';
-  $missing = False;
-  $invalid = False;
+    #Initialize all variables
+    $name = '';
+    $eMail = '';
+    $item = '';
+    $itemType = '';
+    $local = '';
+    $date = '';
+    $desc = '';
+    $missing = False;
+    $invalid = False;
 
-  if($_SERVER[ 'REQUEST_METHOD' ] == 'POST'){
+    #This will check every input and test whether it is missing an input and the validity of it
+    if($_SERVER[ 'REQUEST_METHOD' ] == 'POST'){
 
     $name = $_POST['yourName'];
     if(empty($name)){
@@ -79,16 +83,6 @@
         echo "<h1>You have encounted an error please contact the admin at kr0gAdmin@limbo.gov </h1>";
       }
     }
-    /*
-    echo "<h1>".$name."</h1>";
-    echo "<h1>".$eMail."</h1>";
-    echo "<h1>".$item."</h1>";
-    echo "<h1>".$itemType."</h1>";
-    echo "<h1>".$local."</h1>";
-    echo "<h1>".$date."</h1>";
-    echo "<h1>".$desc."</h1>";
-    */
-
   }
 ?>
 	<!--Sets HTML Language-->
@@ -105,6 +99,8 @@
 		<!--body-->
 		<body>
       <script>
+        //This will allow us to go back to the previous page.  The purpose of this
+        // is to allows quick acces to a back button in the event the item you click is not yours.
         function goBack() {
           window.history.back();
         }
@@ -135,10 +131,15 @@
 				<!--Contains the form information -->
 				<div class="table_div">
           <span style="text-align: center;" id="errors">Fill out this form. * means required</span>
+          <!--This form will take in seven fields of input and input it into the database-->
 					<form action="found_listing.php" method="POST">
+            <!--This will take in input from the user for the first name-->
             <p>Your Name: <input type="text" name="yourName" placeholder="Ex: John Smith" value="<?php if(isset($_POST['yourName'])) echo $_POST['yourName']; ?>"> *</p>
+            <!--This will take in input from the user for the last name-->
             <p>E-Mail: <input type="text" name="E-Mail" placeholder="Ex: John.Smith1@marist.edu" value="<?php if(isset($_POST['E-Mail'])) echo $_POST['E-Mail']; ?>"> *</p>
+            <!--This will take in input from the user for the name of the item-->
             <p>Name of Item: <input type="text" name="nameOfItem" placeholder="Ex: TI-84 Krogulator" value="<?php if(isset($_POST['nameOfItem'])) echo $_POST['nameOfItem']; ?>"> *</p>
+            <!--This will take in input from the user for the category-->
             <p>Catagory:
               <select name="catagory" id="catagory">
                 <option selected value="selected">--Select--</option>
@@ -149,6 +150,7 @@
                 <option <?php if($itemType=='Other') echo 'selected="selected"' ?> value="Other">Other</option>
               </select>
             * </p>
+            <!--This will take in input from the user for the location-->
             <p>Location Found:
               <select name="location" id="location">
                 <option selected value="selected">--Select--</option>
@@ -189,20 +191,15 @@
                 <option <?php if($local=='Other') echo 'selected="selected"' ?> value="Other">Other</option>
               </select>
             * </p>
+            <!--This will take in input from the user for the date found-->
             <p>Date Found: <input type="datetime-local" name="date" required> *</p>
+            <!--This will take in input from the user for the description of item-->
             <h4>Description of Item: *</h4><textarea name="desc" id="desc" rows="10" cols="50" placeholder="Ex: TI-84 Graphing Calculator. Yellow and gray casing with clear battery case. Scuffs on side of calculator." ><?php if(!empty($desc)) echo $desc ?></textarea>
             <p> <input type="submit"></p>
           </form>
 				</div>
-
-
 			</div>
-
-
-
 			</div>
-
-
 			</div>
 		</body>
 	</html>

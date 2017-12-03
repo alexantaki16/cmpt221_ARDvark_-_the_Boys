@@ -1,11 +1,15 @@
 <?php
+  #This php script will start the session and then test whether or not it's loggin in or not.
   session_start();
   if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] == false){
     header("Location: login.php");
   }
+
+  #Include the necessary scripts to run the page
   require("includes/connect_db.php");
   require("includes/tools.php");
 
+  #This will allow us to delete an item that we will see below
   if($_SERVER[ 'REQUEST_METHOD' ] == 'POST'){
     $id = $_POST['id'];
     deleteLostItem($dbc, $id);
@@ -52,6 +56,7 @@
           ?>
 					<br/>
 					</div>
+          <!--This form will give us the text box that will house the id of the admin that will be deleted-->
           <form action="admin_lost.php" method="POST">
             <br/>
     				<br/>
@@ -66,7 +71,6 @@
 				<br/>
 				</div>
 			</div>
-
 			</div>
 			</div>
 		</body>

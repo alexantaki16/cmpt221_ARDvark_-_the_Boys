@@ -5,20 +5,22 @@
 -- File name: found_listing.php --
 -->
 <!DOCTYPE html>
-<?php
-  session_start();
-  if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] == false){
-    header("Location: login.php");
-  }
+  <?php
+    #This will start the session and check the login info
+    session_start();
+    if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] == false){
+      header("Location: login.php");
+    }
+    #This will give us access to the necessary php scripts for this page
+    require("includes/connect_db.php");
+    require("includes/tools.php");
 
-  require("includes/connect_db.php");
-  require("includes/tools.php");
-
-  if($_SERVER[ 'REQUEST_METHOD' ] == 'POST'){
-    $id = $_POST['id'];
-    deleteAdmin($dbc, $id);
-  }
-?>
+    #This will test whether the id can be deleted or not.
+    if($_SERVER[ 'REQUEST_METHOD' ] == 'POST'){
+      $id = $_POST['id'];
+      deleteAdmin($dbc, $id);
+    }
+  ?>
 	<!--Sets HTML Language-->
 	<html lang="en-us">
 	<!--Header-->
@@ -58,9 +60,11 @@
 				<!--Contains the form information -->
 				<div class="table_div">
         <?php
+          #This will display all of the admins in the database.
           showAllAdmins($dbc);
         ?>
 				</div>
+        <!--This will allow us to type the id of the admin we wish to delete and then display and updated database.-->
         <form action="managing_users.php" method="POST">
           <br/>
           <br/>

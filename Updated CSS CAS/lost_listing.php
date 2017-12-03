@@ -5,28 +5,32 @@
 -- File name: lost_listing.php --
 -->
 <!DOCTYPE html>
-<?php
-  require("includes/connect_db.php");
-  require("includes/tools.php");
+  <?php
+    #This script will give us access to the necessary functions.
+    require("includes/connect_db.php");
+    require("includes/tools.php");
 
-  $name = '';
-  $eMail = '';
-  $item = '';
-  $itemType = '';
-  $local = '';
-  $date = '';
-  $desc = '';
-  $missing = False;
-  $invalid = False;
+    #Initialize all variables
+    $name = '';
+    $eMail = '';
+    $item = '';
+    $itemType = '';
+    $local = '';
+    $date = '';
+    $desc = '';
+    $missing = False;
+    $invalid = False;
 
-  if($_SERVER[ 'REQUEST_METHOD' ] == 'POST'){
+    #This will connect us to the databse
+    if($_SERVER[ 'REQUEST_METHOD' ] == 'POST'){
 
+    #This tests the name variable and whether it is empty or not
     $name = $_POST['yourName'];
     if(empty($name)){
       $missing = True;
     }
 
-    # checks if the user has entered in an email
+    #Checks if the user has entered in an email and is valid
 	  $eMail = $_POST['E-Mail'];
     if(empty($eMail)){
       $missing = True;
@@ -35,62 +39,54 @@
       $invalid = True;
     }
 
-    # checks if the item name box is empty
+    #Checks if the item name box is empty
     $item = $_POST['nameOfItem'];
     if(empty($item)){
       $missing = True;
     }
 
-    # checks if the user has entered in a item type
+    #Checks if the user has entered in a item type
     $itemType = $_POST['catagory'];
     if("--Select--" == $itemType){
       $missing = True;
     }
 
-    # checks if users entered in a location
+    #Checks if users entered in a location
     $local = $_POST['location'];
     if("--Select--" == $local){
       $missing = True;
     }
 
-    # date has built in require
+    #Date has built in require
     $date = $_POST['date'];
 
-    # missing description of item
+    #Missing description of item
     $desc = $_POST['desc'];
     if(empty($desc)){
       $missing = True;
     }
 
-    # user did not fill out all of the fields
+    #User did not fill out all of the fields
     if($missing){
       echo '<script type="text/javascript">alert("You must fill out all fields!");</script>';
     }
-    # checks if anything is invalid
+    #Checks if anything is invalid
     else if($invalid){
       echo '<script type="text/javascript">alert("One of your fields is invalid!");</script>';
     }
-    # all of the fields have been filled out
+    #All of the fields have been filled out
     else{
+      #This will insert it into the stuff table
       if(insertItem($dbc, $name, $eMail, $item, $itemType, $local, $date, $desc, "lost")){
         echo "Your item has sucessfully been added into the system.";
       }
       else{
+        #Some unecpected error occured.  Check EasyPHP or sourced database
         echo "<h1>You have encounted an error please contact the admin at kr0gAdmin@limbo.gov </h1>";
       }
     }
-    /*
-    echo "<h1>".$name."</h1>";
-    echo "<h1>".$eMail."</h1>";
-    echo "<h1>".$item."</h1>";
-    echo "<h1>".$itemType."</h1>";
-    echo "<h1>".$local."</h1>";
-    echo "<h1>".$date."</h1>";
-    echo "<h1>".$desc."</h1>";
-    */
-
   }
-?>
+  ?>
 	<!--Sets HTML Language-->
 	<html lang="en-us">
 	<!--Header-->
@@ -105,10 +101,11 @@
 		<!--body-->
 		<body>
       <script>
+        //This will allow the user to go back to he previous page
         function goBack() {
           window.history.back();
         }
-</script>
+       </script>
 			<!--background DIV-->
 			<div class="container">
 			<!--image title-->
@@ -135,10 +132,15 @@
 				<!--Contains the form information -->
 				<div class="table_div">
           <span style="text-align: center;" id="errors">Fill out this form. * means required</span>
+          <!--This form will allow the user to input their information about the about they lost.-->
 					<form action="lost_listing.php" method="POST">
+            <!--This will allow you to input a name-->
             <p>Your Name: <input type="text" name="yourName" placeholder="Ex: John Smith" value="<?php if(isset($_POST['yourName'])) echo $_POST['yourName']; ?>"> *</p>
+            <!--This will allow you to input an email-->
             <p>E-Mail: <input type="text" name="E-Mail" placeholder="Ex: John.Smith1@marist.edu" value="<?php if(isset($_POST['E-Mail'])) echo $_POST['E-Mail']; ?>"> *</p>
+            <!--This will allow you to input the name of the item-->
             <p>Name of Item: <input type="text" name="nameOfItem" placeholder="Ex: TI-84 Krogulator" value="<?php if(isset($_POST['nameOfItem'])) echo $_POST['nameOfItem']; ?>"> *</p>
+            <!--This will allow you to input the category-->
             <p>Catagory:
               <select name="catagory" id="catagory">
                 <option selected value="selected">--Select--</option>
@@ -149,6 +151,7 @@
                 <option <?php if($itemType=='Other') echo 'selected="selected"' ?> value="Other">Other</option>
               </select>
             * </p>
+            <!--This will allow you to input the location of the lost item-->
             <p>Location Lost:
               <select name="location" id="location">
                 <option selected value="selected">--Select--</option>
@@ -189,20 +192,15 @@
                 <option <?php if($local=='Other') echo 'selected="selected"' ?> value="Other">Other</option>
               </select>
             * </p>
+            <!--This will allow you to input the date something was lost-->
             <p>Date Lost: <input type="datetime-local" name="date" required> *</p>
+            <!--This will allow you to input the description of the item-->
             <h4>Description of Item: *</h4><textarea name="desc" id="desc" rows="10" cols="50" placeholder="Ex: TI-84 Graphing Calculator. Yellow and gray casing with clear battery case. Scuffs on side of calculator." ><?php if(!empty($desc)) echo $desc ?></textarea>
             <p> <input type="submit"></p>
           </form>
 				</div>
-
-
 			</div>
-
-
-
 			</div>
-
-
 			</div>
 		</body>
 	</html>
