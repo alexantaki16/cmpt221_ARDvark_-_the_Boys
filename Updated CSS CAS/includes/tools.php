@@ -6,10 +6,9 @@
     $results = mysqli_query( $dbc, $query);
   }
 
-  
-  function modifyAdminPass($dbc, $username, $oPass, $nPass){
-    $hashedPass = 
-    $query = "UPDATE users SET pass = '".$action."' WHERE sid=".$id;
+ function modifyAdminPass($dbc, $username, $oPass, $nPass){
+    $hashedPass = PASSWORD_HASH($oPass, PASSOWRD_DEFAULT);
+    $query = "UPDATE users SET pass = '".$hashedPass."' WHERE username='".$username"'";
     $results = mysqli_query( $dbc, $query);
   }
 
