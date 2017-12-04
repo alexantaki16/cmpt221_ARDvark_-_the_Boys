@@ -11,17 +11,18 @@
         if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] ==true){
           header("Location: admin_quick.php?username=" .$_POST['username']);
         }
-        if(empty($user) || empty($pass)){
+
+        if(empty($_POST['username']) || empty($_POST['password'])){
           echo "Please enter the correct username and password.";
         }
         #This will test the username and password and verify the hashed password is correct
         else if(isset($_POST['username']) && isset($_POST['password'])) {
+          #If the log in works, then the page will be redirected
           $user = $_POST['username'];
           $pass = $_POST['password'];
-          #If the log in works, then the page will be redirected
           if (adminLogin($dbc, $user, $pass)) {
             $_SESSION['loggedin'] = true;
-              header("Location: admin_quick.php?username=" .$user);
+              header("Location: admin_quick.php");
           }else{
             #This will work if the login info is invalid.
             echo "Please enter the correct username and password!";
