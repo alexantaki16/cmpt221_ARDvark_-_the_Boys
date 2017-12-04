@@ -399,4 +399,35 @@
 
     echo '</select>';
   }
+  function getLat($dbc, $sid){
+      $query = 'SELECT bName FROM stuff WHERE sid='.$sid;
+      $results = mysqli_query( $dbc, $query);
+      $row = mysqli_fetch_array( $results, MYSQLI_ASSOC);
+
+      $query = 'SELECT latCord FROM location WHERE name = "'.$row['bName'].'"';
+      $results = mysqli_query( $dbc, $query);
+      $row = mysqli_fetch_array( $results, MYSQLI_ASSOC);
+
+      return $row['latCord'];
+    }
+
+    function getLong($dbc, $sid){
+      $query = 'SELECT bName FROM stuff WHERE sid='.$sid;
+      $results = mysqli_query( $dbc, $query);
+      $row = mysqli_fetch_array( $results, MYSQLI_ASSOC);
+
+      $query = 'SELECT longCord FROM location WHERE  name = "'.$row['bName'].'"';
+      $results = mysqli_query( $dbc, $query);
+      $row = mysqli_fetch_array( $results, MYSQLI_ASSOC);
+
+      return $row['longCord'];
+    }
+
+    function getBName($dbc, $sid){
+      $query = 'SELECT bName FROM stuff WHERE sid='.$sid;
+      $results = mysqli_query( $dbc, $query);
+      $row = mysqli_fetch_array( $results, MYSQLI_ASSOC);
+
+      return $row['bName'];
+    }
 ?>
