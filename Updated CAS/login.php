@@ -78,7 +78,6 @@
               <input type="submit" value="Login"/>
               <br/>
               <br/>
-              <a href="admin_alter.php">Change Password!</a>
             </form>
 					</div>
 				</div>

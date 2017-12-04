@@ -50,6 +50,7 @@
 				<!--Text-->
 				<h1>Manage Users</h1>
       	<br/>
+        <a href = "admin_alter.php">Change Admin Password</a>
 				<br/>
         <a href="add_admin.php">Create a New Admin!</a>
         <br/>

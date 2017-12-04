@@ -88,8 +88,8 @@
 				<div class="table_div">
           <form action="admin_alter.php" method="POST">
             <p>Username: <input type="text" name="username" placeholder="Ex: caz.decustatis" value="<?php if(isset($_POST['username'])) echo $_POST['username']; ?>"></p>
-            <p>Old Password: <input type="password" name="pass" placeholder="Ex: he11oWorld"></p>
-            <p>New Password: <input type="password" name="conPass" placeholder="Ex: goodbyeworld"></p>
+            <p>Old Password: <input type="password" name="oPass" placeholder="Ex: he11oWorld"></p>
+            <p>New Password: <input type="password" name="nPass" placeholder="Ex: goodbyeworld"></p>
 						<p><input type="submit"/></p>
           </form>
 				</div>
