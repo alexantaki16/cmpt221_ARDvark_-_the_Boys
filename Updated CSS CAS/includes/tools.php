@@ -6,6 +6,13 @@
     $results = mysqli_query( $dbc, $query);
   }
 
+  
+  function modifyAdminPass($dbc, $username, $oPass, $nPass){
+    $hashedPass = 
+    $query = "UPDATE users SET pass = '".$action."' WHERE sid=".$id;
+    $results = mysqli_query( $dbc, $query);
+  }
+
   # displays all the admins
   function showAllAdmins($dbc){
     $query = "SELECT * FROM users";
